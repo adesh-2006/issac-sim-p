@@ -1,0 +1,50 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.venv/
+venv/
+env/
+.env
+.env.*
+!.env.example
+*.egg-info/
+dist/
+build/
+
+# IDE and operating system
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+
+# Logs and generated output
+*.log
+logs/
+outputs/
+recordings/raw/
+
+# Isaac Sim simulation artifacts
+cache/
+*/cache/
+kit/
+_build/
+*.usd.bak
+*.usdc.bak
+
+# Test coverage
+.coverage
+htmlcov/
+
+# Jupyter notebooks checkpoints
+.ipynb_checkpoints/
+
+# Secrets / local config overrides
+*.secret
+local_config.yaml

@@ -1,0 +1,62 @@
+# control/config.yaml
+# Teleoperation Bridge Configuration
+# Person 3 — edit these values after testing with Person 2's confirmed workspace.
+# All values are documented with units and expected ranges.
+
+# ─── Network ─────────────────────────────────────────────────────────────────
+network:
+  vision_host: "127.0.0.1"    # host that sends vision packets
+  vision_port: 5005            # UDP port to RECEIVE vision packets
+
+  robot_host: "127.0.0.1"     # host of the Isaac Sim controller
+  robot_port: 5006             # UDP port to SEND robot commands
+
+  socket_timeout_s: 0.05       # recv timeout (seconds) — controls polling rate
+  stale_data_timeout_s: 0.5    # seconds before a packet is considered stale
+
+# ─── Smoothing ───────────────────────────────────────────────────────────────
+smoothing:
+  alpha: 0.4                   # EMA alpha: 0 < α ≤ 1.0 (lower = more smoothing)
+
+# ─── Coordinate Mapping ──────────────────────────────────────────────────────
+mapping:
+  # Axis gains: metres of robot movement per unit of normalised hand delta
+  gain_x: 0.4
+  gain_y: 0.4
+
+  # Dead zone around the calibration anchor (normalised image units 0–1)
+  dead_zone: 0.02
+
+  # Maximum per-update end-effector displacement (metres)
+  # Start conservative; increase only after direction and stop tests pass.
+  max_delta_m: 0.02
+
+# ─── Workspace Bounds (metres, Isaac Sim world frame) ────────────────────────
+# Update these after Person 2 confirms the actual robot prim and scene frame.
+workspace:
+  x_min: 0.2
+  x_max: 0.8
+  y_min: 0.0    # Y is held constant in MVP
+  y_max: 0.0
+  z_min: 0.1
+  z_max: 0.7
+
+# ─── Robot Home / Anchor ─────────────────────────────────────────────────────
+# The default robot target before any calibration is performed.
+robot_home:
+  x: 0.5
+  y: 0.0
+  z: 0.4
+
+# ─── Gesture / Pinch ─────────────────────────────────────────────────────────
+gesture:
+  # Minimum confidence for tracking to be considered valid
+  min_confidence: 0.5
+
+# ─── Keyboard Controls ───────────────────────────────────────────────────────
+# Key codes are lowercase single characters or special names.
+# Supported special names: "space", "esc", "enter"
+keys:
+  arm_disarm:  "space"    # Toggle teleoperation armed/disarmed
+  calibrate:   "c"        # Calibrate/recenter hand anchor
+  stop:        "esc"      # Stop and exit immediately

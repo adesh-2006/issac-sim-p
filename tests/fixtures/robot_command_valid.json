@@ -1,0 +1,10 @@
+{
+  "version": 1,
+  "seq": 107,
+  "timestamp_ms": 1791800000066,
+  "enabled": true,
+  "stop": false,
+  "mode": "TARGET_XZ",
+  "target_xyz_m": [0.45, 0.00, 0.38],
+  "gripper_opening": 0.0
+}

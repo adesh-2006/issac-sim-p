@@ -1,0 +1,13 @@
+{
+  "version": 1,
+  "seq": 42,
+  "timestamp_ms": 1791800000000,
+  "tracking": true,
+  "confidence": 0.93,
+  "hand": {
+    "x": 0.55,
+    "y": 0.40,
+    "pinch_distance": 0.04
+  },
+  "gesture": "OPEN"
+}
